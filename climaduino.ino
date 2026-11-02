@@ -34,9 +34,8 @@ void loop() {
   float t2 = sensor2.readTemperature();
   float u2 = sensor2.readHumidity();
 
-  if (isnan(t1) || isnan(u1) ||
-      isnan(t2) || isnan(u2)) {
-
+  if (isnan(t1) || isnan(u1) || isnan(t2) || isnan(u2)) 
+  {
     digitalWrite(LED_PIN, LOW);
 
     Serial.println("Erro na leitura dos sensores!");
@@ -51,8 +50,7 @@ void loop() {
 
   float diferenca = abs(t1 - t2);
 
-  bool alerta = (t1 > LIMITE_TEMPERATURA ||
-                 t2 > LIMITE_TEMPERATURA);
+  bool alerta = (t1 > LIMITE_TEMPERATURA || t2 > LIMITE_TEMPERATURA);
 
   digitalWrite(LED_PIN, alerta ? HIGH : LOW);
 
